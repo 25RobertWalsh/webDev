@@ -8,6 +8,14 @@
 <body>
     <h1>Hello World</h1>
     <p>This is my test page.</p>
+    <p id="drag" draggable="true">Drag me!</p>
+    
 </body>
 <script href="script.js"></script>
+<script>
+    function draggable(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+    }
+    document.getElementById("drag").addEventListener("dragstart", draggable);
+</script>
 </html>
