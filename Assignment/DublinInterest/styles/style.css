@@ -79,6 +79,19 @@ body {
     color: white;
 }
 
+/* Make logo and title clickable and nicely aligned */
+.home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.home-link .site-title {
+    color: white;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -156,8 +169,8 @@ body {
 
 .hero-signup {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 30px;
+    backdrop-filter: blur(1px);
+    padding: 30px 30px 0px 30px;
     border-radius: var(--border-radius);
     margin-top: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -431,6 +444,16 @@ body {
     transform: translateX(5px);
 }
 
+.todo-item.dragging {
+    opacity: 0.5;
+    transform: scale(0.98);
+}
+
+.todo-item.drag-over {
+    outline: 2px dashed rgba(30,64,175,0.5);
+    background-color: rgba(14,165,233,0.06);
+}
+
 .todo-item.completed {
     opacity: 0.6;
 }
@@ -674,6 +697,63 @@ body {
     text-align: center;
     padding: 40px 20px;
     margin-top: 60px;
+}
+
+/* Social icons in footer */
+.social-icons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    color: white;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.12);
+}
+
+
+/* Footer row layout: left text, right icons */
+.footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.social-link img {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 600px) {
+    .footer-row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left, .footer-right { text-align: center; }
 }
 
 /* ===== Animations ===== */

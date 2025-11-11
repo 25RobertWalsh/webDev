@@ -1,10 +1,36 @@
+// ===== Navigation Active Link Highlighting =====
+
+// Highlight the current page's navigation link
+function setActiveNavLink() {
+    // Get the current page filename
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Remove active class from all links
+    navLinks.forEach(link => link.classList.remove('active'));
+    
+    // Add active class to the current page's link
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+}
+
 // ===== To-Do List Functionality =====
 
 // Initialize the app
 document.addEventListener('DOMContentLoaded', function() {
+    setActiveNavLink();
     loadTodos();
     setupEventListeners();
 });
+
+// Drag state for reordering
+let dragSrcId = null;
 
 // Setup all event listeners
 function setupEventListeners() {
@@ -120,6 +146,8 @@ function renderTodos(filter = 'all') {
     todos.forEach(todo => {
         const li = document.createElement('li');
         li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+        li.setAttribute('draggable', 'true');
+        li.dataset.id = todo.id;
 
         li.innerHTML = `
             <input 
@@ -132,10 +160,68 @@ function renderTodos(filter = 'all') {
             <button class="todo-delete" onclick="deleteTodo(${todo.id})">Delete</button>
         `;
 
+        // Drag and drop handlers
+        li.addEventListener('dragstart', onDragStart);
+        li.addEventListener('dragover', onDragOver);
+        li.addEventListener('dragleave', onDragLeave);
+        li.addEventListener('drop', onDrop);
+        li.addEventListener('dragend', onDragEnd);
+
         todoList.appendChild(li);
     });
 
     updateStats();
+}
+
+// Drag & Drop handlers for reordering
+function onDragStart(e) {
+    dragSrcId = Number(this.dataset.id);
+    e.dataTransfer.effectAllowed = 'move';
+    try { e.dataTransfer.setData('text/plain', String(dragSrcId)); } catch (err) {}
+    this.classList.add('dragging');
+}
+
+function onDragOver(e) {
+    e.preventDefault(); // allow drop
+    e.dataTransfer.dropEffect = 'move';
+    this.classList.add('drag-over');
+}
+
+function onDragLeave(e) {
+    this.classList.remove('drag-over');
+}
+
+function onDrop(e) {
+    e.preventDefault();
+    this.classList.remove('drag-over');
+
+    const targetId = Number(this.dataset.id);
+    if (dragSrcId === null || dragSrcId === targetId) return;
+
+    let todosFull = getTodos();
+    const draggedIndexFull = todosFull.findIndex(t => t.id === dragSrcId);
+    const targetIndexFull = todosFull.findIndex(t => t.id === targetId);
+    if (draggedIndexFull < 0 || targetIndexFull < 0) return;
+
+    // Decide whether to insert before or after based on mouse position
+    const rect = this.getBoundingClientRect();
+    const insertBefore = (e.clientY - rect.top) < (rect.height / 2);
+
+    let newIndex = targetIndexFull + (insertBefore ? 0 : 1);
+    if (draggedIndexFull < newIndex) newIndex--;
+
+    const [moved] = todosFull.splice(draggedIndexFull, 1);
+    todosFull.splice(newIndex, 0, moved);
+
+    saveTodos(todosFull);
+    dragSrcId = null;
+    renderTodos('all');
+}
+
+function onDragEnd(e) {
+    this.classList.remove('dragging');
+    document.querySelectorAll('.todo-item.drag-over').forEach(el => el.classList.remove('drag-over'));
+    dragSrcId = null;
 }
 
 // Update statistics

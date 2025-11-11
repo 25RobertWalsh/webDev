@@ -12,11 +12,13 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo-container">
-                    <img src="assets/images/logo.jpg" alt="Dublin Interest Logo" class="logo">
-                    <span class="site-title">Dublin Interest</span>
+                    <a href="index.html" class="home-link" aria-label="Dublin Interest Home">
+                        <img src="assets/images/logo.jpg" alt="Dublin Interest Logo" class="logo">
+                        <span class="site-title">Dublin Interest</span>
+                    </a>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="places.html" class="nav-link">Places to See</a></li>
                     <li><a href="restaurants.html" class="nav-link">Places to Eat</a></li>
                     <li><a href="todo.html" class="nav-link">To-Do List</a></li>
@@ -67,8 +69,23 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Dublin Interest. All rights reserved.</p>
+        <div class="container footer-row">
+            <div class="footer-left">
+                <p>&copy; 2025 Dublin Interest. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <div class="social-icons" aria-label="Follow us on social media">
+                    <a href="#" class="social-link" aria-label="Instagram" title="Instagram">
+                        <img src="assets/icons/instagram.png" alt="Instagram" width="24" height="24">
+                    </a>
+                    <a href="#" class="social-link" aria-label="X (Twitter)" title="X">
+                        <img src="assets/icons/x.png" alt="X" width="24" height="24">
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook" title="Facebook">
+                        <img src="assets/icons/facebook.png" alt="Facebook" width="24" height="24">
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
