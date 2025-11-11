@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive To-Do List - Dublin Interest</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-container">
+                    <img src="assets/images/logo.jpg" alt="Dublin Interest Logo" class="logo">
+                    <span class="site-title">Dublin Interest</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="places.html" class="nav-link">Places to See</a></li>
+                    <li><a href="restaurants.html" class="nav-link">Places to Eat</a></li>
+                    <li><a href="todo.html" class="nav-link">To-Do List</a></li>
+                    <li><a href="benefits.html" class="nav-link">Benefits</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Your Dublin Adventure To-Do List</h1>
+            <p>Plan your perfect trip with our interactive to-do list</p>
+        </section>
+
+        <section class="todo-section">
+            <div class="container">
+                <div class="todo-container">
+                    <div class="todo-input-group">
+                        <input 
+                            type="text" 
+                            id="todoInput" 
+                            placeholder="Add an activity or attraction to your list..."
+                            class="todo-input"
+                        >
+                        <button id="addBtn" class="btn-primary">Add Item</button>
+                    </div>
+
+                    <div class="todo-stats">
+                        <p>Total Items: <span id="totalItems">0</span> | Completed: <span id="completedItems">0</span></p>
+                    </div>
+
+                    <div class="todo-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="active">Active</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+
+                    <ul id="todoList" class="todo-list">
+                        <!-- Items will be added here dynamically -->
+                    </ul>
+
+                    <button id="clearCompleted" class="btn-secondary">Clear Completed Items</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Dublin Interest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>
