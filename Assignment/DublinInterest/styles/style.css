@@ -237,11 +237,23 @@ body {
 }
 
 .hero-signup .signup-form button {
-    background-color: var(--accent-color);
+    border-radius: 15px;
+    padding: 5px;
+    background-color: var(--secondary-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: #e5e7eb;
+    border: none;
 }
 
-.hero-signup .signup-form button:hover {
-    background-color: #d97706;
+.hero-signup .signup-form button:hover{
+    background-color: #1981b1;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hero-signup .signup-form button:active {
+    background-color: var(--primary-color);
 }
 
 #formMessage {
