@@ -170,6 +170,18 @@ function renderTodos(filter = 'all') {
         todoList.appendChild(li);
     });
 
+    // Attach edit handler to text spans
+    document.querySelectorAll('.todo-text').forEach(span => {
+        span.addEventListener('dblclick', function(e) {
+            const li = this.closest('.todo-item');
+            const todoId = Number(li.dataset.id);
+            const currentText = this.textContent;
+            startEdit(li, todoId, currentText);
+        });
+        span.style.cursor = 'pointer';
+        span.title = 'Double-click to edit';
+    });
+
     updateStats();
 }
 
@@ -300,6 +312,60 @@ function handleEmailSubmit(e) {
         messageDiv.textContent = '';
         messageDiv.className = '';
     }, 5000);
+}
+
+// Edit mode for todo items
+function startEdit(li, todoId, currentText) {
+    // Disable dragging while editing
+    li.setAttribute('draggable', 'false');
+    li.classList.add('editing');
+
+    // Replace text span with input
+    const textSpan = li.querySelector('.todo-text');
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'todo-edit-input';
+    input.value = currentText;
+    input.maxLength = 100;
+
+    textSpan.replaceWith(input);
+    input.focus();
+    input.select();
+
+    // Handle save/cancel
+    function saveEdit() {
+        const newText = input.value.trim();
+        if (newText === '') {
+            alert('Todo text cannot be empty!');
+            input.focus();
+            return;
+        }
+        if (newText !== currentText) {
+            let todos = getTodos();
+            const todo = todos.find(t => t.id === todoId);
+            if (todo) {
+                todo.text = newText;
+                saveTodos(todos);
+            }
+        }
+        cancelEdit();
+    }
+
+    function cancelEdit() {
+        li.classList.remove('editing');
+        li.setAttribute('draggable', 'true');
+        renderTodos('all');
+    }
+
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            saveEdit();
+        } else if (e.key === 'Escape') {
+            cancelEdit();
+        }
+    });
+
+    input.addEventListener('blur', saveEdit);
 }
 
 // Utility function to escape HTML characters

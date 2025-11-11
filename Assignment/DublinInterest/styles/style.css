@@ -466,6 +466,34 @@ body {
     background-color: rgba(14,165,233,0.06);
 }
 
+.todo-item.editing {
+    background-color: rgba(14,165,233,0.1);
+    border: 2px solid var(--secondary-color);
+}
+
+.todo-item.editing .todo-text {
+    display: none;
+}
+
+.todo-edit-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 500;
+    background-color: white;
+    color: var(--dark-text);
+    transition: all 0.2s ease;
+}
+
+.todo-edit-input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(14,165,233,0.1);
+}
+
 .todo-item.completed {
     opacity: 0.6;
 }
