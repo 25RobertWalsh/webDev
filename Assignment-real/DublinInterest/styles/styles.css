@@ -45,6 +45,7 @@ button a:active {
     transform: translateY(0);
 }
 
+
 /* Header */
 header {
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
@@ -148,6 +149,7 @@ h1 {
 .nav-link-active:hover {
     transform: translateY(0);
 }
+
 
 /* Main */
 main {
@@ -458,7 +460,6 @@ hero {
     background-size: 110%;
     background-repeat: no-repeat;
     background-position: center;
-    
     min-height: calc(100vh - 100px - 220px - 180px);
 }
 
@@ -673,6 +674,7 @@ hero {
     text-align: center;
     color: var(--light-bg);
     border-radius: 20px;
+    padding-bottom: 0;
 }
 
 .benefit-cta-container h2 {
@@ -697,4 +699,36 @@ hero {
     color: white;
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+.line-break {
+    height: 5px;
+}
+
+.animated-shape {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    animation: squareSpin 1s infinite ease-in;
+    position: relative;
+    top: -30px;
+}
+
+.finger-icon {
+   display: inline-block;
+   width: 40px;
+   height: 40px;
+   object-fit: cover;
+}
+
+@keyframes squareSpin {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
