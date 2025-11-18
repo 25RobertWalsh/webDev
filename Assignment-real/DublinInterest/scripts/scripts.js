@@ -3,6 +3,23 @@ const addBtn = document.getElementById('addBtn');
 const todoList = document.getElementById('todoList');
 const newTodoInput = document.getElementById('newTodo');
 
+// Scroll animation for homepage-content-items
+function revealOnScroll() {
+    const items = document.querySelectorAll('.homepage-content-item');
+    items.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        // Trigger animation when item is 100px from bottom of viewport
+        if (rect.top < window.innerHeight - 200) {
+            item.classList.add('visible');
+        }
+    });
+}
+
+if (document.querySelectorAll('.homepage-content-item').length > 0) {
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+}
+
 let itemNum = 0;
 let draggedItem = null;
 
