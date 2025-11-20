@@ -254,7 +254,7 @@ hero {
     width: 80%;
     margin: auto;
     margin-bottom: 100px;
-    padding-top: 100px;
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
 
@@ -284,6 +284,7 @@ hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .hompage-content-item-heading {
@@ -303,6 +304,8 @@ hero {
 }
 
 .homepage-content-btn-link {
+    display: inline-block;  
+    transition: all 0.3s ease;
     height: 40px;
     background-color: var(--primary-color);
     color: var(--light-bg);
@@ -311,11 +314,21 @@ hero {
     line-height: 40px;
     font-weight: 500;
     margin: auto;
-    padding: 10px 20px;
+    padding: 0 20px;
     border-radius: 5px;
 }
 
+.homepage-content-btn-link:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
 
+.homepage-content-btn-link:active {
+    background-color: var(--secondary-color);
+    transform: translateY(0);
+    box-shadow: var(--shadow);
+}
 
 .homepage-content-item-image {
     width: 50%;
@@ -617,11 +630,13 @@ hero {
 .todo-container-add-new button:hover {
     background-color: #1281b4;
     transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
 .todo-container-add-new button:active {
     background-color: #1281b4;
     transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
 

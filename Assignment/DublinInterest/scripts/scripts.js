@@ -9,7 +9,7 @@ function revealOnScroll() {
     items.forEach(item => {
         const rect = item.getBoundingClientRect();
         // Trigger animation when item is 100px from bottom of viewport
-        if (rect.top < window.innerHeight - 200) {
+        if (rect.top < window.innerHeight - 100) {
             item.classList.add('visible');
         }
     });
