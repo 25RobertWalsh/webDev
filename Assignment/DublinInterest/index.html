@@ -1,133 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>Dublin Interest</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dublin Interest - Explore the Heart of Ireland</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 <body>
-    <!-- Header/Navigation -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
+    <header>
+        <div class="nav-container">
+            <a href="#">
                 <div class="logo-container">
-                    <a href="index.html" class="home-link" aria-label="Dublin Interest Home">
-                        <img src="assets/images/logo.jpg" alt="Dublin Interest Logo" class="logo">
-                        <span class="site-title">Dublin Interest</span>
-                    </a>
+                    <img src="assets/images/logo.jpg" alt="Dublin Interest Logo" title="Dublin Interest Logo">
                 </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="places.html" class="nav-link">Places to See</a></li>
-                    <li><a href="restaurants.html" class="nav-link">Places to Eat</a></li>
-                    <li><a href="todo.html" class="nav-link">To-Do List</a></li>
-                    <li><a href="benefits.html" class="nav-link">Benefits</a></li>
-                </ul>
+                <h1>Dublin Interest</h1>
+            </a>
+            <div class="nav-menu">
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="nav-link-active">Home</a></li>
+                        <li><a href="places-to-see.html" class="nav-link">Places To See</a></li>
+                        <li><a href="places-to-eat.html" class="nav-link">Places To Eat</a></li>
+                        <li><a href="todo-list.html" class="nav-link">To-do List</a></li>
+                        <li><a href="benefits-of-todo.html" class="nav-link">Why To-do?</a></li>
+                    </ul>
+                </nav>
             </div>
-        </nav>
+        </div>
     </header>
-
-    <!-- Hero Section -->
     <main>
-        <section class="hero">
-            <video autoplay muted loop playsinline class="hero-video">
-                <source src="assets/videos/dublin_stock.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay"></div>
+        <hero>
+            <div class="hero-background-video">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/videos/dublin_stock.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <div class="overlay"></div>
+            </div>
             <div class="hero-content">
-                <h1>Discover Dublin</h1>
-                <p>Your ultimate guide to experiencing the magic of Ireland's vibrant capital</p>
-                
-                <!-- Email Signup Section in Hero -->
-                <div class="hero-signup">
-                    <h2>Stay Updated</h2>
-                    <p>Subscribe to our newsletter for the latest Dublin tips and attractions</p>
-                    <form class="signup-form" id="emailForm">
-                        <input type="email" placeholder="Enter your email address" required>
-                        <button type="submit" id="email-submit-btn">Subscribe</button>
-                    </form>
-                    <p id="formMessage"></p>
-                </div>
+                <h2 class="hero-main-text">Discover Dublin</h2>
+                <p class="hero-sub-text">Your ultimate guide to experiencing the magic of Ireland's vibrant capital</p>
             </div>
-        </section>
-
-        <!-- Content Sections -->
-        <section class="content-sections">
-            <div class="container">
-                <!-- Places to See Preview (1st - Image Left) -->
-                <div class="section-card">
-                    <div class="section-image">
-                        <img src="assets/images/dublin-landmark.jpg" alt="Dublin Landmarks">
-                    </div>
-                    <div class="section-content">
-                        <h2>Must-See Landmarks</h2>
-                        <p>Explore Dublin's most iconic places and landmarks. From historic architecture to cultural treasures, discover what makes Dublin truly special.</p>
-                        <a href="places.html" class="btn-primary">View Landmarks</a>
-                    </div>
+        </hero>
+        <div class="homepage-content">
+            <div class="homepage-content-item">
+                <div class="homepage-content-item-image">
+                    <img src="assets/images/dublin-landmark.jpg" alt="Trinity College Old Library" title="Trinity College Old Library">
                 </div>
-
-                <!-- Places to Eat Preview (2nd - Image Right) -->
-                <div class="section-card reverse">
-                    <div class="section-image">
-                        <img src="assets/images/where-to-eat.jpg" alt="Dining">
-                    </div>
-                    <div class="section-content">
-                        <h2>Where to Eat</h2>
-                        <p>Discover Dublin's vibrant culinary scene. From traditional Irish pubs to modern restaurants, explore the best dining experiences the city has to offer.</p>
-                        <a href="restaurants.html" class="btn-primary">View Restaurants</a>
-                    </div>
-                </div>
-
-                <!-- Interactive To-Do List Preview (3rd - Image Left) -->
-                <div class="section-card">
-                    <div class="section-image">
-                        <img src="assets/images/to-do-list.jpg" alt="To-Do List">
-                    </div>
-                    <div class="section-content">
-                        <h2>Stay Organized</h2>
-                        <p>Plan your Dublin adventure with our interactive to-do list. Add activities, attractions, and dining experiences to your personal itinerary.</p>
-                        <a href="todo.html" class="btn-primary">Explore To-Do List</a>
-                    </div>
-                </div>
-
-                <!-- Benefits Section Preview (4th - Image Right) -->
-                <div class="section-card reverse">
-                    <div class="section-image">
-                        <img src="assets/images/benefits.jpg" alt="Benefits">
-                    </div>
-                    <div class="section-content">
-                        <h2>Why Make a To-Do List?</h2>
-                        <p>Discover the numerous benefits of planning your trip. From maximizing your time to reducing stress, learn how a well-organized itinerary enhances your Dublin experience.</p>
-                        <a href="benefits.html" class="btn-primary">Learn More</a>
+                <div class="homepage-content-item-text">
+                    <h3 class="hompage-content-item-heading">Must-See Landmarks</h3>
+                    <p class="homepage-content-item-subtext">Explore Dublin's most iconic places and landmarks. From historic architecture to cultural treasures, discover what makes Dublin truly special.</p>
+                    <div class="homepage-content-btn-container">
+                        <a class="homepage-content-btn-link" href="places-to-see.html">Discover Places</a>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-row">
-            <div class="footer-left">
-                <p>&copy; 2025 Dublin Interest. All rights reserved.</p>
+            <div class="homepage-content-item">
+                <div class="homepage-content-item-text">
+                    <h3 class="hompage-content-item-heading">Where to Eat</h3>
+                    <p class="homepage-content-item-subtext">Discover Dublin's vibrant culinary scene. From traditional Irish pubs to modern restaurants, explore the best dining experiences the city has to offer.</p>
+                    <div class="homepage-content-btn-container">
+                        <a class="homepage-content-btn-link" href="places-to-eat.html">Take a Look</a>
+                    </div>
+                </div>
+                <div class="homepage-content-item-image">
+                    <img src="assets/images/where-to-eat.jpg" alt="Fancy meal" title="Fancy meal">
+                </div>
             </div>
-            <div class="footer-right">
-                <div class="social-icons" aria-label="Follow us on social media">
-                    <a href="#" class="social-link" aria-label="Instagram" title="Instagram">
-                        <img src="assets/icons/instagram.png" alt="Instagram" width="24" height="24">
-                    </a>
-                    <a href="#" class="social-link" aria-label="X (Twitter)" title="X">
-                        <img src="assets/icons/x.png" alt="X" width="24" height="24">
-                    </a>
-                    <a href="#" class="social-link" aria-label="Facebook" title="Facebook">
-                        <img src="assets/icons/facebook.png" alt="Facebook" width="24" height="24">
-                    </a>
+            <div class="homepage-content-item">
+                <div class="homepage-content-item-image">
+                    <img src="assets/images/to-do-list.jpg" alt="To-do list" title="To-do list">
+                </div>
+                <div class="homepage-content-item-text">
+                    <h3 class="hompage-content-item-heading">Stay Organized</h3>
+                    <p class="homepage-content-item-subtext">Plan your Dublin adventure with our interactive to-do list. Add activities, attractions, and dining experiences to your personal itinerary.</p>
+                    <div class="homepage-content-btn-container">
+                        <a class="homepage-content-btn-link" href="todo-list.html">Make a To-do List</a>
+                    </div>
+                </div>
+            </div>
+            <div class="homepage-content-item">
+                <div class="homepage-content-item-text">
+                    <div class="hompage-content-item-heading">
+                        <h3>Why Make a To-Do List?</h3>
+                    </div>
+                    <p class="homepage-content-item-subtext">Discover the numerous benefits of planning your trip. From maximizing your time to reducing stress, learn how a well-organized itinerary enhances your Dublin experience.</p>
+                    <div class="homepage-content-btn-container">
+                        <a class="homepage-content-btn-link" href="benefits-of-todo.html">See Benefits</a>
+                    </div>
+                </div>
+                <div class="homepage-content-item-image">
+                    <img src="assets/images/benefits.jpg" alt="Two people jumping with joy" title="Two people jumping with joy">
                 </div>
             </div>
         </div>
-    </footer>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">© 2025 Dublin Interest. All rights reserved.</p>
 
-    <script src="scripts/scripts.js"></script>
+        </div>
+    </footer>
 </body>
+<script src="scripts/scripts.js"></script>
+<noscript>Your browser does not support JavaScript!</noscript>
 </html>

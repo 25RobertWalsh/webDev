@@ -1,0 +1,14 @@
+web dev design task 1 (choose own theme)
+------------------------------------------
+
+- explain what website is and purpose
+
+- 5 pages
+
+- wireframes every page
+
+- mockups each page
+
+- html5 feature explanation
+
+- to do list explanation and purpose
